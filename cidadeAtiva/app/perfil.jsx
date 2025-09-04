@@ -12,9 +12,11 @@ export default function Perfil() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
+  const HOST = "http://192.168.1.2:9000";
+
   const salvarDados = async () => {
     try {
-      const resposta = await fetch("http://192.168.1.15:3000/perfil", {
+      const resposta = await fetch(`${HOST}/perfil`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, sobrenome, cpf, tipoTelefone, telefone, email }),
@@ -36,10 +38,10 @@ export default function Perfil() {
         ],
         { cancelable: false }
       );
-      
+
     } catch (error) {
       console.error("Erro ao salvar perfil:", error);
-      
+
       // ALERTA DE ERRO
       Alert.alert(
         "❌ Erro",
@@ -75,7 +77,7 @@ export default function Perfil() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#f2f6fa", padding: 30, justifyContent: 'center', alignItens: 'center'},
+  container: { flex: 1, backgroundColor: "#f2f6fa", padding: 30, justifyContent: 'center', alignItens: 'center' },
   title: { fontSize: 22, fontWeight: "bold", color: "#144480", marginBottom: 5 },
   subtitle: { fontSize: 14, color: "#666", marginBottom: 20 },
   input: {

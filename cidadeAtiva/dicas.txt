@@ -1,0 +1,8 @@
+// atualizar o repositorio
+npm install --force
+
+// para rodar o app (front)
+npx expo start
+
+// no celular instalar o expo para simular o android
+https://expo.dev/go

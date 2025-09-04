@@ -1,0 +1,14 @@
+// atualizar o repositorio
+npm install --force
+
+// inicializar o prisma (pode dar erro se a pasta e schema ja existirem, só seguir)
+npx prisma init
+
+// para criar o schema atraves do banco
+npx prisma db pull
+
+// para criar o banco atraves schema
+npx prisma db push
+
+// para rodar a api (server)
+node src/server.js
