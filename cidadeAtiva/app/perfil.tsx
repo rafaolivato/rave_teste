@@ -1,6 +1,6 @@
 // Exemplo de como ficaria seu arquivo em TypeScript
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Pressable, Alert, ScrollView } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, StyleSheet, Pressable, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useRouter } from "expo-router";
 
@@ -45,14 +45,19 @@ export default function Perfil() {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={{ flex: 2 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}></Text>
+        <Text style={styles.title}></Text>
         <Text style={styles.title}>DADOS PESSOAIS</Text>
         <Text style={styles.subtitle}>Insira seus dados pessoais</Text>
         <TextInput style={styles.input} placeholder="Nome" value={nome} onChangeText={setNome} />
         <TextInput style={styles.input} placeholder="Sobrenome" value={sobrenome} onChangeText={setSobrenome} />
         <TextInput style={styles.input} placeholder="CPF" value={cpf} onChangeText={setCpf} keyboardType="numeric" />
-        <Picker selectedValue={tipoTelefone} style={styles.input} onValueChange={(itemValue: string) => setTipoTelefone(itemValue)}>
+        <Picker selectedValue={tipoTelefone} style={styles.option} onValueChange={(itemValue: string) => setTipoTelefone(itemValue)}>
           <Picker.Item label="Celular" value="Celular" />
           <Picker.Item label="Residencial" value="Residencial" />
           <Picker.Item label="Comercial" value="Comercial" />
@@ -62,23 +67,17 @@ export default function Perfil() {
         <Pressable style={styles.button} onPress={salvarDados}>
           <Text style={styles.buttonText}>Salvar</Text>
         </Pressable>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#f2f6fa", padding: 30, justifyContent: 'center'},
+  container: { flexGrow: 1, height: 700, backgroundColor: "#191a27ff", padding: 30, justifyContent: 'center' },
   title: { fontSize: 22, fontWeight: "bold", color: "#144480", marginBottom: 5 },
   subtitle: { fontSize: 14, color: "#666", marginBottom: 20 },
-  input: {
-    backgroundColor: "#fff",
-    padding: 12,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    marginBottom: 15,
-  },
+  option: { backgroundColor: "#fff", height: 50, padding: 10, borderRadius: 8, borderWidth: 1, borderColor: "#ccc", marginBottom: 15, },
+  input: { backgroundColor: "#fff", padding: 12, borderRadius: 8, borderWidth: 1, borderColor: "#ccc", marginBottom: 15, },
   button: { backgroundColor: "#144480", padding: 15, borderRadius: 10, alignItems: "center", marginTop: 20 },
   buttonText: { color: "#fff", fontWeight: "600", fontSize: 16 },
 });
