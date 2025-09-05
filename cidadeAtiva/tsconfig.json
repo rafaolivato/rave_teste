@@ -14,5 +14,5 @@
     "**/*.jsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/_layout.tsx", "app/index.tsx", "app/notificacao.tsx", "app/perfil.tsx"  ]
 }
