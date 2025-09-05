@@ -87,7 +87,7 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   container: { flexGrow: 1, height: 700, backgroundColor: "#191a27ff", padding: 30, justifyContent: 'center', alignItens: 'center' },
   title: { fontSize: 22, fontWeight: "bold", color: "#144480", marginBottom: 5 },
-  subtitle: { fontSize: 14, color: "#666", marginBottom: 20 },
+  subtitle: { fontSize: 14, color: "#666", marginBottom: 20 }, 
   input: { backgroundColor: "#fff", padding: 10, borderRadius: 8, borderWidth: 1, borderColor: "#ccc", marginBottom: 15, },
   option: { backgroundColor: "#fff", height: 50, padding: 10, borderRadius: 8, borderWidth: 1, borderColor: "#ccc", marginBottom: 15, },
   button: { backgroundColor: "#144480", padding: 15, borderRadius: 10, alignItems: "center", marginTop: 20 },
