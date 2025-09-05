@@ -68,7 +68,7 @@ export default function Perfil() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#f2f6fa", padding: 30, justifyContent: 'center' },
+  container: { flex: 1, backgroundColor: "#f2f6fa", padding: 30, justifyContent: 'center'},
   title: { fontSize: 22, fontWeight: "bold", color: "#144480", marginBottom: 5 },
   subtitle: { fontSize: 14, color: "#666", marginBottom: 20 },
   input: {
