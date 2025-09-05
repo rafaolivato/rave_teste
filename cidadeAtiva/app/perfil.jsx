@@ -12,11 +12,11 @@ export default function Perfil() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
-  const HOST = "http://192.168.1.2:9000";
+  const _HOST = "http://192.168.1.2:9000";
 
   const salvarDados = async () => {
     try {
-      const resposta = await fetch(`${HOST}/perfil`, {
+      const resposta = await fetch(`${_HOST}/perfil`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, sobrenome, cpf, tipoTelefone, telefone, email }),

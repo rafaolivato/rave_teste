@@ -1,6 +1,11 @@
 // atualizar o repositorio
 npm install --force
 
+// se for usar typescript
+npm install react-native-dotenv
+npm install --save-dev metro-react-native-babel-preset
+npx react-native start --reset-cache
+
 // para rodar o app (front)
 npx expo start
 
