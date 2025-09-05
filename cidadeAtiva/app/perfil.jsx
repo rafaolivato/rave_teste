@@ -75,6 +75,7 @@ export default function Perfil() {
         <TextInput style={styles.input} placeholder="Telefone" value={telefone} onChangeText={setTelefone} keyboardType="phone-pad" />
         <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
 
+
         <Pressable style={styles.button} onPress={salvarDados}>
           <Text style={styles.buttonText}>Salvar</Text>
         </Pressable>
@@ -84,7 +85,7 @@ export default function Perfil() {
 }
 
 const styles = StyleSheet.create({
-  container: { flexGrow: 1, height: 1, backgroundColor: "#191a27ff", padding: 30, justifyContent: 'center', alignItens: 'center' },
+  container: { flexGrow: 1, height: 700, backgroundColor: "#191a27ff", padding: 30, justifyContent: 'center', alignItens: 'center' },
   title: { fontSize: 22, fontWeight: "bold", color: "#144480", marginBottom: 5 },
   subtitle: { fontSize: 14, color: "#666", marginBottom: 20 },
   input: { backgroundColor: "#fff", padding: 10, borderRadius: 8, borderWidth: 1, borderColor: "#ccc", marginBottom: 15, },
