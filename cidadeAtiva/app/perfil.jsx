@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Pressable, Alert } from "react-native";
+import { View, Text, TextInput, StyleSheet, Pressable, Alert, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useRouter } from "expo-router";
 
@@ -52,6 +52,7 @@ export default function Perfil() {
   };
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Text style={styles.title}>DADOS PESSOAIS</Text>
       <Text style={styles.subtitle}>Insira seus dados pessoais</Text>
@@ -73,6 +74,7 @@ export default function Perfil() {
         <Text style={styles.buttonText}>Salvar</Text>
       </Pressable>
     </View>
+    </ScrollView>
   );
 }
 
