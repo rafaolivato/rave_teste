@@ -21,7 +21,7 @@ export default function Perfil() {
     const [email, setEmail] = useState<string>("");
     const router = useRouter();
 
-    const _HOST = "http://192.168.1.2:9000";
+    const _HOST = "http://192.168.1.11:9000";
 
     const formatTelefone = (value: string) => {
         // remove tudo que não for número
@@ -29,7 +29,7 @@ export default function Perfil() {
 
         // aplica máscara (xx) xxxxx-xxxx
         if (cleaned.length <= 10) {
-        return cleaned.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+            return cleaned.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
         }
         return cleaned.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
     };
@@ -37,9 +37,9 @@ export default function Perfil() {
     const formatCpf = (value: string) => {
         const cleaned = value.replace(/\D/g, "");
         return cleaned
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
     };
 
     const salvarDados = async () => {
@@ -73,7 +73,7 @@ export default function Perfil() {
             ], { cancelable: false });
         } catch (error: any) {
             console.error("Erro ao salvar perfil:", error);
-            
+
             // 2. Trata o erro de validação do Zod
             if (error instanceof ZodError) {
                 const erros = error.issues.map(issue => `• ${issue.message}`).join("\n");
@@ -83,7 +83,7 @@ export default function Perfil() {
                 Alert.alert("❌ Erro", "Não foi possível salvar o perfil. Tente novamente.", [{ text: "OK", style: "cancel" }]);
             }
         }
-    
+
     };
 
     return (
@@ -104,7 +104,7 @@ export default function Perfil() {
                     <Picker.Item label="Residencial" value="Residencial" />
                     <Picker.Item label="Comercial" value="Comercial" />
                 </Picker>
-                <TextInput style={styles.input} placeholder="Telefone" value={telefone} onChangeText={(v)=> setTelefone(formatTelefone(v))} keyboardType="phone-pad" maxLength={15} />
+                <TextInput style={styles.input} placeholder="Telefone" value={telefone} onChangeText={(v) => setTelefone(formatTelefone(v))} keyboardType="phone-pad" maxLength={15} />
                 <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
                 <Pressable style={styles.button} onPress={salvarDados}>
                     <Text style={styles.buttonText}>Salvar</Text>

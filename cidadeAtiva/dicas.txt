@@ -1,6 +1,12 @@
 // atualizar o repositorio
 npm install --force
 
+// atualizar o expo
+npm install expo@latest
+
+// instalar os validators
+npm install zod
+
 // se for usar typescript
 npm install react-native-dotenv
 npm install --save-dev metro-react-native-babel-preset
